@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/contexts/players.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1695789481661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695789489922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n   createContextId<Signal<string>>(\"docs.theme-context\");\n \n export default component$(() => {\n   const store = useStore({\n- playList\n+    playListid: [],\n+    player\n   });\n   useContextProvider(ThemeContext, store);\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1695789495274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n   createContextId<Signal<string>>(\"docs.theme-context\");\n \n export default component$(() => {\n   const store = useStore({\n-    playListid: [],\n-    player\n+    playersid: [],\n+    playersMap\n   });\n   useContextProvider(ThemeContext, store);\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1695789501771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n   createContextId<Signal<string>>(\"docs.theme-context\");\n \n export default component$(() => {\n   const store = useStore({\n-    playersid: [],\n-    playersMap\n+    playersName: [],\n+    playersMap, \n   });\n   useContextProvider(ThemeContext, store);\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1695789511135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n export default component$(() => {\n   const store = useStore({\n     playersName: [],\n-    playersMap, \n+    playersMap: {},\n   });\n   useContextProvider(ThemeContext, store);\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1695789523361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   createContextId,\n } from \"@builder.io/qwik\";\n \n export const ThemeContext =\n-  createContextId<Signal<string>>(\"docs.theme-context\");\n+  createContextId<Signal<string>>(\"player-context\");\n \n export default component$(() => {\n   const store = useStore({\n     playersName: [],\n"
+                },
+                {
+                    "date": 1695789531769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,9 @@\n   useContextProvider,\n   createContextId,\n } from \"@builder.io/qwik\";\n \n-export const ThemeContext =\n-  createContextId<Signal<string>>(\"player-context\");\n+export const PlayerContextId = createContextId<Signal<string>>(\"player-context\");\n \n export default component$(() => {\n   const store = useStore({\n     playersName: [],\n"
+                },
+                {
+                    "date": 1695789548666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,12 @@\n   useContextProvider,\n   createContextId,\n } from \"@builder.io/qwik\";\n \n-export const PlayerContextId =\n-  createContextId<Signal<string>>(\"player-context\");\n+export const PlayerContextId = createContextId<Signal<string>>({\n+  playersName: [],\n+  playersMap: {},\n+});\n \n export default component$(() => {\n   const store = useStore({\n     playersName: [],\n"
+                },
+                {
+                    "date": 1695789557930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import { type Signal, component$, useSignal, useStore } from \"@builder.io/qwik\";\n+import {\n+  useContext,\n+  useContextProvider,\n+  createContextId,\n+} from \"@builder.io/qwik\";\n+\n+export const PlayerContextId = createContextId<>({\n+  playersName: [],\n+  playersMap: {},\n+});\n+\n+export default component$(() => {\n+  const store = useStore({\n+    playersName: [],\n+    playersMap: {},\n+  });\n+  useContextProvider(PlayerContextId, store);\n+  return (\n+    <>\n+      <button onClick$={() => {}}>Flip</button>\n+      <Child />\n+    </>\n+  );\n+});\n+\n+const Child = component$(() => {\n+  const theme = useContext(ThemeContext);\n+  return <div>Theme is {theme.value}</div>;\n+});\n"
+                }
+            ],
+            "date": 1695789481661,
+            "name": "Commit-0",
+            "content": "import { type Signal, component$, useSignal, useStore } from \"@builder.io/qwik\";\nimport {\n  useContext,\n  useContextProvider,\n  createContextId,\n} from \"@builder.io/qwik\";\n\nexport const ThemeContext =\n  createContextId<Signal<string>>(\"docs.theme-context\");\n\nexport default component$(() => {\n  const store = useStore({\n playList\n  });\n  useContextProvider(ThemeContext, store);\n  return (\n    <>\n      <button onClick$={() => {}}>Flip</button>\n      <Child />\n    </>\n  );\n});\n\nconst Child = component$(() => {\n  const theme = useContext(ThemeContext);\n  return <div>Theme is {theme.value}</div>;\n});\n"
+        }
+    ]
+}

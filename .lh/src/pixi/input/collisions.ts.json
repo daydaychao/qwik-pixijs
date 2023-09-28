@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/pixi/input/collisions.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1695889038154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695889047353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const handleCollisions = (app:IApp,mover: Sprite) => {\n   let dirX = 0;\n   let dirY = 0;\n \n-  const allSprites = app.data.allSprites;\n+  const allSprites = app.store.allSprites;\n \n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n   if (checkCollision(mover, sprite)) {\n"
+                },
+                {
+                    "date": 1695889056296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n-import type { Application, Sprite } from \"pixi.js\";\n+import type {  Sprite } from \"pixi.js\";\n import { CollisionEnum } from \"~/core/types\";\n+import { IApp } from \"../startPixi\";\n \n // 處理碰撞\n export const handleCollisions = (app:IApp,mover: Sprite) => {\n   let dirX = 0;\n   let dirY = 0;\n \n   const allSprites = app.store.allSprites;\n-\n+  allSprites.forEach((sprite) => { })\n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n   if (checkCollision(mover, sprite)) {\n     // 如果碰到 1，停止角色移動\n"
+                },
+                {
+                    "date": 1695889064946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   let dirX = 0;\n   let dirY = 0;\n \n   const allSprites = app.store.allSprites;\n-  allSprites.forEach((sprite) => { })\n+  allSprites.forEach((target) => { \n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n   if (checkCollision(mover, sprite)) {\n     // 如果碰到 1，停止角色移動\n"
+                },
+                {
+                    "date": 1695889072833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,12 @@\n     player.y += dirY * speed;\n     rock.x += dirX * speed;\n     rock.y += dirY * speed;\n   }\n-};\n \n+    })\n+    };\n+\n const checkCollision = (sprite1: Sprite, sprite2: Sprite) => {\n   const bounds1 = sprite1.getBounds();\n   const bounds2 = sprite2.getBounds();\n   return (\n"
+                },
+                {
+                    "date": 1695891983010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const handleCollisions = (app:IApp,mover: Sprite) => {\n   let dirX = 0;\n   let dirY = 0;\n \n-  const allSprites = app.store.allSprites;\n+  const allSprites = app.store.allCharacters;\n   allSprites.forEach((target) => { \n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n   if (checkCollision(mover, sprite)) {\n"
+                },
+                {
+                    "date": 1695891988443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const handleCollisions = (app:IApp,mover: Sprite) => {\n   let dirX = 0;\n   let dirY = 0;\n \n-  const allSprites = app.store.allCharacters;\n+  const all = app.store.allCharacters;\n   allSprites.forEach((target) => { \n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n   if (checkCollision(mover, sprite)) {\n"
+                },
+                {
+                    "date": 1695892004825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   const all = app.store.allCharacters;\n   all.forEach((target) => {\n   // 檢查角色和其他物體之間的碰撞\n   if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n-  if (checkCollision(mover, sprite)) {\n+  if (checkCollision(mover, target)) {\n     // 如果碰到 1，停止角色移動\n     mover.x -= dirX * speed;\n     mover.y -= dirY * speed;\n   }\n"
+                },
+                {
+                    "date": 1695892014464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n   if (checkCollision(mover, target)) {\n     // 如果碰到 rock，角色和 rock 都可以推動它\n     mover.x += dirX * speed;\n     mover.y += dirY * speed;\n-    rock.x += dirX * speed;\n-    rock.y += dirY * speed;\n+    target.x += dirX * speed;\n+    target.y += dirY * speed;\n   }\n \n     })\n     };\n"
+                }
+            ],
+            "date": 1695889038154,
+            "name": "Commit-0",
+            "content": "import type { Application, Sprite } from \"pixi.js\";\nimport { CollisionEnum } from \"~/core/types\";\n\n// 處理碰撞\nexport const handleCollisions = (app:IApp,mover: Sprite) => {\n  let dirX = 0;\n  let dirY = 0;\n\n  const allSprites = app.data.allSprites;\n\n  // 檢查角色和其他物體之間的碰撞\n  if(target.collision === CollisionEnum.CAN_NOT_PUSH) {\n  if (checkCollision(mover, sprite)) {\n    // 如果碰到 1，停止角色移動\n    mover.x -= dirX * speed;\n    mover.y -= dirY * speed;\n  }\n\n  // 檢查角色和其他物體之間的碰撞\n  if (checkCollision(mover, sprite)) {\n    // 如果碰到 rock，角色和 rock 都可以推動它\n    player.x += dirX * speed;\n    player.y += dirY * speed;\n    rock.x += dirX * speed;\n    rock.y += dirY * speed;\n  }\n};\n\nconst checkCollision = (sprite1: Sprite, sprite2: Sprite) => {\n  const bounds1 = sprite1.getBounds();\n  const bounds2 = sprite2.getBounds();\n  return (\n    bounds1.x + bounds1.width > bounds2.x &&\n    bounds1.x < bounds2.x + bounds2.width &&\n    bounds1.y + bounds1.height > bounds2.y &&\n    bounds1.y < bounds2.y + bounds2.height\n  );\n};\n"
+        }
+    ]
+}

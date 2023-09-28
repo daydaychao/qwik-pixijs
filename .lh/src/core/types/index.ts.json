@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/core/types/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1695886414950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695886423855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-export \n\\ No newline at end of file\n+export type ICharactor = {\n+  \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695886435361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n export type ICharactor = {\n+  hp: number;\n+  mv: number;\n   \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695886442816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n export type ICharactor = {\n   hp: number;\n   mv: number;\n-  \n+  sprite: PIXI.Sprite;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695886457460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n+import { Application, Assets, Sprite } from \"pixi.js\";\n+\n export type ICharactor = {\n   hp: number;\n   mv: number;\n\\ No newline at end of file\n   sprite: PIXI.Sprite;\n-}\n+};\n"
+                },
+                {
+                    "date": 1695886466630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import { Application, Assets, Sprite } from \"pixi.js\";\n+import PIXI from \"pixi.js\";\n \n export type ICharactor = {\n   hp: number;\n   mv: number;\n   sprite: PIXI.Sprite;\n\\ No newline at end of file\n-};\n+};\n"
+                },
+                {
+                    "date": 1695886473419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import PIXI from \"pixi.js\";\n+import {Sprite} from \"pixi.js\";\n \n export type ICharactor = {\n   hp: number;\n   mv: number;\n-  sprite: PIXI.Sprite;\n+  sprite: Sprite;\n };\n"
+                },
+                {
+                    "date": 1695886481353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n-import {Sprite} from \"pixi.js\";\n+import { Sprite } from \"pixi.js\";\n \n export type ICharactor = {\n   hp: number;\n   mv: number;\n   sprite: Sprite;\n\\ No newline at end of file\n-};\n+  collision:\n+};\n"
+                },
+                {
+                    "date": 1695886487013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,8 @@\n export type ICharactor = {\n   hp: number;\n   mv: number;\n   sprite: Sprite;\n-  collision:\n-};\n\\ No newline at end of file\n+  collision: number;\n+};\n+\n+export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695886496194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,7 @@\n   sprite: Sprite;\n   collision: number;\n };\n \n-export type IColli\n\\ No newline at end of file\n+export type ICollisionType = {\n+  \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695886502206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,5 @@\n   sprite: Sprite;\n   collision: number;\n };\n \n-export type ICollisionType = 0\n+export type ICollisionType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;\n"
+                }
+            ],
+            "date": 1695886414950,
+            "name": "Commit-0",
+            "content": "export "
+        }
+    ]
+}

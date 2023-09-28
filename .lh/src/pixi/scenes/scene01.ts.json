@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/pixi/scenes/scene01.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695887939001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695887945783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,4 @@\n-export const runScene01 = async (app: Application) => {};\n+export const runScene01 = async (app: Application) => {\n+\n+  createFaris(app);\n+};\n"
+                },
+                {
+                    "date": 1695887980590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { createFaris } from \"../createFaris\";\n+import { createFaris } from \"../characters/createFaris\";\n \n export const runScene01 = async (app: Application) => {\n   createFaris(app);\n };\n"
+                }
+            ],
+            "date": 1695887939001,
+            "name": "Commit-0",
+            "content": "\n\nexport const runScene01 ="
+        }
+    ]
+}

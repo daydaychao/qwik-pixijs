@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/global.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1695708328628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695708334009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,4 +78,7 @@\n   padding: 0;\n   line-height: inherit;\n }\n \n+*{\n+  border-box: \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695708339111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,6 +79,6 @@\n   line-height: inherit;\n }\n \n *{\n-  border-box: \n+  border-sizing: border-box\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1695708362417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,10 @@\n   --qwik-dark-text: #ffffff;\n }\n \n html {\n+    padding: 0;\n+  margin: 0;\n   line-height: 1;\n   -webkit-text-size-adjust: 100%;\n   -moz-tab-size: 4;\n   -o-tab-size: 4;\n"
+                }
+            ],
+            "date": 1695708328628,
+            "name": "Commit-0",
+            "content": "/**\n * WHAT IS THIS FILE?\n *\n * Globally applied styles. No matter which components are in the page or matching route,\n * the styles in here will be applied to the Document, without any sort of CSS scoping.\n *\n */\n\n:root {\n  --qwik-dark-blue: #006ce9;\n  --qwik-light-blue: #18b6f6;\n  --qwik-light-purple: #ac7ff4;\n  --qwik-dark-purple: #713fc2;\n  --qwik-dirty-black: #1d2033;\n  --qwik-dark-background: #151934;\n  --qwik-dark-text: #ffffff;\n}\n\nhtml {\n  line-height: 1;\n  -webkit-text-size-adjust: 100%;\n  -moz-tab-size: 4;\n  -o-tab-size: 4;\n  tab-size: 4;\n  font-family:\n    ui-sans-serif,\n    system-ui,\n    -apple-system,\n    BlinkMacSystemFont,\n    \"Segoe UI\",\n    Roboto,\n    \"Helvetica Neue\",\n    Arial,\n    \"Noto Sans\",\n    sans-serif,\n    \"Apple Color Emoji\",\n    \"Segoe UI Emoji\",\n    \"Segoe UI Symbol\",\n    \"Noto Color Emoji\";\n}\n\nbody {\n  padding: 0;\n  margin: 0;\n  line-height: inherit;\n}\n\n/**\n * WHAT IS THIS FILE?\n *\n * Globally applied styles. No matter which components are in the page or matching route,\n * the styles in here will be applied to the Document, without any sort of CSS scoping.\n *\n */\nhtml {\n  -webkit-text-size-adjust: 100%;\n  -moz-tab-size: 4;\n  -o-tab-size: 4;\n  tab-size: 4;\n  font-family:\n    ui-sans-serif,\n    system-ui,\n    -apple-system,\n    BlinkMacSystemFont,\n    \"Segoe UI\",\n    Roboto,\n    \"Helvetica Neue\",\n    Arial,\n    \"Noto Sans\",\n    sans-serif,\n    \"Apple Color Emoji\",\n    \"Segoe UI Emoji\",\n    \"Segoe UI Symbol\",\n    \"Noto Color Emoji\";\n}\n\nbody {\n  padding: 0;\n  line-height: inherit;\n}\n\n"
+        }
+    ]
+}

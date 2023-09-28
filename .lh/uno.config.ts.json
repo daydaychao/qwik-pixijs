@@ -1,0 +1,30 @@
+{
+    "sourceFile": "uno.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1695695577972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695705531353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-// uno.config.ts\n import { defineConfig } from \"unocss\";\n \n export default defineConfig({\n-  // ...UnoCSS options\n+  rules: [[\"m-1\", { margin: \"1px\" }]],\n });\n"
+                },
+                {
+                    "date": 1695705545975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n import { defineConfig } from \"unocss\";\n \n export default defineConfig({\n-  rules: [[\"m-1\", { margin: \"1px\" }]],\n+  rules: [\n+    [/^m-([\\.\\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],\n+    [/^p-([\\.\\d]+)$/, ([_, num]) => ({ padding: `${num}px` })],\n+  ],\n });\n"
+                },
+                {
+                    "date": 1695705554844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n import { defineConfig } from \"unocss\";\n \n export default defineConfig({\n-  rules: [\n-    [/^m-([\\.\\d]+)$/, ([_, num]) => ({ margin: `${num}px` })],\n-    [/^p-([\\.\\d]+)$/, ([_, num]) => ({ padding: `${num}px` })],\n-  ],\n+  rules: [[\"m-1\", { margin: \"1px\" }]],\n });\n"
+                }
+            ],
+            "date": 1695695577972,
+            "name": "Commit-0",
+            "content": "// uno.config.ts\nimport { defineConfig } from \"unocss\";\n\nexport default defineConfig({\n  // ...UnoCSS options\n});\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/routes/demo/todolist/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695694928059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695694928059,
+            "name": "Commit-0",
+            "content": "import { component$ } from \"@builder.io/qwik\";\nimport {\n  type DocumentHead,\n  routeLoader$,\n  routeAction$,\n  zod$,\n  z,\n  Form,\n} from \"@builder.io/qwik-city\";\nimport styles from \"./todolist.module.css\";\n\ninterface ListItem {\n  text: string;\n}\n\nexport const list: ListItem[] = [];\n\nexport const useListLoader = routeLoader$(() => {\n  return list;\n});\n\nexport const useAddToListAction = routeAction$(\n  (item) => {\n    list.push(item);\n    return {\n      success: true,\n    };\n  },\n   ({\n    text: z.string().trim().min(1),\n  }),\n);\n\nexport default component$(() => {\n  const list = useListLoader();\n  const action = useAddToListAction();\n\n  return (\n    <>\n      <div class=\"container container-center\">\n        <h1>\n          <span class=\"highlight\">TODO</span> List\n        </h1>\n      </div>\n\n      <div role=\"presentation\" class=\"ellipsis\"></div>\n\n      <div class=\"container container-center\">\n        {list.value.length === 0 ? (\n          <span class={styles.empty}>No items found</span>\n        ) : (\n          <ul class={styles.list}>\n            {list.value.map((item, index) => (\n              <li key={`items-${index}`}>{item.text}</li>\n            ))}\n          </ul>\n        )}\n      </div>\n\n      <div class=\"container container-center\">\n        <Form action={action} spaReset>\n          <input type=\"text\" name=\"text\" required class={styles.input} />{\" \"}\n          <button type=\"submit\" class=\"button-dark\">\n            Add item\n          </button>\n        </Form>\n\n        <p class={styles.hint}>\n          PS: This little app works even when JavaScript is disabled.\n        </p>\n      </div>\n    </>\n  );\n});\n\nexport const head: DocumentHead = {\n  title: \"Qwik Todo List\",\n};\n"
+        }
+    ]
+}

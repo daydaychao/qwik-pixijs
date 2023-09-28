@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/pixi/characters/faris/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1695890920262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695890942585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import type { ICharacter } from \"~/core/types\";\n import type { IApp } from \"../../startPixi\";\n import { renderFaris } from \"./renderFaris\";\n+import faris from \"../images/charactors/white-mage/faris0.jpg\";\n \n export const Faris = (app: IApp): ICharacter => {\n   renderFaris(app);\n \n"
+                },
+                {
+                    "date": 1695890947682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import type { ICharacter } from \"~/core/types\";\n import type { IApp } from \"../../startPixi\";\n import { renderFaris } from \"./renderFaris\";\n-import faris from \"../images/charactors/white-mage/faris0.jpg\";\n+import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n \n export const Faris = (app: IApp): ICharacter => {\n   renderFaris(app);\n \n"
+                },
+                {
+                    "date": 1695890958657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n \n export const Faris = (app: IApp): ICharacter => {\n-  renderFaris(app);\n+  renderFaris({app, farisJpg, 0, 0});\n \n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n"
+                },
+                {
+                    "date": 1695890966955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n \n export const Faris = (app: IApp): ICharacter => {\n-  renderFaris({app, farisJpg, 0, 0});\n+  renderFaris({app:app, texture:farisJpg, 0, 0});\n \n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n"
+                },
+                {
+                    "date": 1695890980254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,19 @@\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n \n export const Faris = (app: IApp): ICharacter => {\n-  renderFaris({app:app, texture:farisJpg, 0, 0});\n+  renderFaris({ app: app, texture: farisJpg, x: 0, y: 0 });\n \n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n+    charId: string;\n+  name: string;\n+  hp: number;\n+  mv: number;\n+  collision: CollisionEnum;\n+  mapLayer: MapLayerEnum;\n   };\n   return faris;\n };\n"
+                },
+                {
+                    "date": 1695890986166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,8 @@\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n     charId: string;\n-  name: string;\n-  hp: number;\n-  mv: number;\n   collision: CollisionEnum;\n   mapLayer: MapLayerEnum;\n   };\n   return faris;\n"
+                },
+                {
+                    "date": 1695891000025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n     charId: string;\n-  collision: CollisionEnum;\n+  collision: CollisionEnum.1;\n   mapLayer: MapLayerEnum;\n   };\n   return faris;\n };\n"
+                },
+                {
+                    "date": 1695891007358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n-    charId: string;\n-  collision: CollisionEnum.1;\n+    charId: u,\n+  collision: CollisionEnum.CAN_PUSH;\n   mapLayer: MapLayerEnum;\n   };\n   return faris;\n };\n"
+                },
+                {
+                    "date": 1695891013260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,18 @@\n import type { ICharacter } from \"~/core/types\";\n import type { IApp } from \"../../startPixi\";\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n+import { randomUUID } from \"crypto\";\n \n export const Faris = (app: IApp): ICharacter => {\n   renderFaris({ app: app, texture: farisJpg, x: 0, y: 0 });\n \n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n-    charId: u,\n+    charId: randomUUID\n   collision: CollisionEnum.CAN_PUSH;\n   mapLayer: MapLayerEnum;\n   };\n   return faris;\n"
+                },
+                {
+                    "date": 1695891037950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n   const faris: ICharacter = {\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n-    charId: randomUUID\n-  collision: CollisionEnum.CAN_PUSH;\n-  mapLayer: MapLayerEnum;\n+    charId: randomUUID(),\n+  collision: CollisionEnum.CAN_PUSH,\n+  mapLayer: MapLayerEnum,\n   };\n   return faris;\n };\n"
+                },
+                {
+                    "date": 1695891043156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { CollisionEnum, type ICharacter } from \"~/core/types\";\n+import { CollisionEnum, MapLayerEnum, type ICharacter } from \"~/core/types\";\n import type { IApp } from \"../../startPixi\";\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n import { randomUUID } from \"crypto\";\n@@ -11,9 +11,9 @@\n     name: \"Faris\",\n     hp: 100,\n     mv: 100,\n     charId: randomUUID(),\n-  collision: CollisionEnum.CAN_PUSH,\n-  mapLayer: MapLayerEnum,\n+    collision: CollisionEnum.CAN_PUSH,\n+    mapLayer: MapLayerEnum.CHARACTER,\n   };\n   return faris;\n };\n"
+                },
+                {
+                    "date": 1695891319156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { CollisionEnum, MapLayerEnum, type ICharacter } from \"~/core/types\";\n import type { IApp } from \"../../startPixi\";\n import { renderFaris } from \"./renderFaris\";\n import farisJpg from \"../images/charactors/white-mage/faris0.jpg\";\n-import { randomUUID } from \"crypto\";\n    import { nanoid } from \"nanoid\";\n export const Faris = (app: IApp): ICharacter => {\n   renderFaris({ app: app, texture: farisJpg, x: 0, y: 0 });\n \n"
+                }
+            ],
+            "date": 1695890920262,
+            "name": "Commit-0",
+            "content": "import type { ICharacter } from \"~/core/types\";\nimport type { IApp } from \"../../startPixi\";\nimport { renderFaris } from \"./renderFaris\";\n\nexport const Faris = (app: IApp): ICharacter => {\n  renderFaris(app);\n\n  const faris: ICharacter = {\n    name: \"Faris\",\n    hp: 100,\n    mv: 100,\n  };\n  return faris;\n};\n"
+        }
+    ]
+}

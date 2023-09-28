@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pixi/checkCollisions.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695886338096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695886338096,
+            "name": "Commit-0",
+            "content": "// 處理碰撞\nconst handleCollisions = () => {\n  // 檢查角色和其他物體之間的碰撞\n  if (checkCollision(player, slime)) {\n    // 如果碰到 slime，停止角色移動\n    player.x -= dirX * speed;\n    player.y -= dirY * speed;\n  }\n\n  // 檢查角色和其他物體之間的碰撞\n  if (checkCollision(player, rock)) {\n    // 如果碰到 rock，角色和 rock 都可以推動它\n    player.x += dirX * speed;\n    player.y += dirY * speed;\n    rock.x += dirX * speed;\n    rock.y += dirY * speed;\n  }\n};\n"
+        }
+    ]
+}

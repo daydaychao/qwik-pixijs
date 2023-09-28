@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/routes/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695694160997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695694169217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n export default component$(() => {\n   return (\n     <>\n       <Hero />\n+      <Starter />\n \n       <div role=\"presentation\" class=\"ellipsis\"></div>\n       <div role=\"presentation\" class=\"ellipsis ellipsis-purple\"></div>\n \n"
+                },
+                {
+                    "date": 1695695092651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import { component$ } from \"@builder.io/qwik\";\n+import type { DocumentHead } from \"@builder.io/qwik-city\";\n+\n+import Counter from \"~/components/starter/counter/counter\";\n+import Hero from \"~/components/starter/hero/hero\";\n+import Infobox from \"~/components/starter/infobox/infobox\";\n+import Starter from \"~/components/starter/next-steps/next-steps\";\n+\n+export default component$(() => {\n+  return (\n+    <>\n+      </div>\n+    </>\n+  );\n+});\n+\n+export const head: DocumentHead = {\n+  title: \"Welcome to Qwik\",\n+  meta: [\n+    {\n+      name: \"description\",\n+      content: \"Qwik site description\",\n+    },\n+  ],\n+};\n"
+                }
+            ],
+            "date": 1695694160997,
+            "name": "Commit-0",
+            "content": "import { component$ } from \"@builder.io/qwik\";\nimport type { DocumentHead } from \"@builder.io/qwik-city\";\n\nimport Counter from \"~/components/starter/counter/counter\";\nimport Hero from \"~/components/starter/hero/hero\";\nimport Infobox from \"~/components/starter/infobox/infobox\";\nimport Starter from \"~/components/starter/next-steps/next-steps\";\n\nexport default component$(() => {\n  return (\n    <>\n   \n      <Starter />\n\n      <div role=\"presentation\" class=\"ellipsis\"></div>\n      <div role=\"presentation\" class=\"ellipsis ellipsis-purple\"></div>\n\n      <div class=\"container container-center container-spacing-xl\">\n        <h3>\n          You can <span class=\"highlight\">count</span>\n          <br /> on me\n        </h3>\n        <Counter />\n      </div>\n\n      <div class=\"container container-flex\">\n        <Infobox>\n          <div q:slot=\"title\" class=\"icon icon-cli\">\n            CLI Commands\n          </div>\n          <>\n            <p>\n              <code>npm run dev</code>\n              <br />\n              Starts the development server and watches for changes\n            </p>\n            <p>\n              <code>npm run preview</code>\n              <br />\n              Creates production build and starts a server to preview it\n            </p>\n            <p>\n              <code>npm run build</code>\n              <br />\n              Creates production build\n            </p>\n            <p>\n              <code>npm run qwik add</code>\n              <br />\n              Runs the qwik CLI to add integrations\n            </p>\n          </>\n        </Infobox>\n\n        <div>\n          <Infobox>\n            <div q:slot=\"title\" class=\"icon icon-apps\">\n              Example Apps\n            </div>\n            <p>\n              Have a look at the <a href=\"/demo/flower\">Flower App</a> or the{\" \"}\n              <a href=\"/demo/todolist\">Todo App</a>.\n            </p>\n          </Infobox>\n\n          <Infobox>\n            <div q:slot=\"title\" class=\"icon icon-community\">\n              Community\n            </div>\n            <ul>\n              <li>\n                <span>Questions or just want to say hi? </span>\n                <a href=\"https://qwik.builder.io/chat\" target=\"_blank\">\n                  Chat on discord!\n                </a>\n              </li>\n              <li>\n                <span>Follow </span>\n                <a href=\"https://twitter.com/QwikDev\" target=\"_blank\">\n                  @QwikDev\n                </a>\n                <span> on Twitter</span>\n              </li>\n              <li>\n                <span>Open issues and contribute on </span>\n                <a href=\"https://github.com/BuilderIO/qwik\" target=\"_blank\">\n                  GitHub\n                </a>\n              </li>\n              <li>\n                <span>Watch </span>\n                <a href=\"https://qwik.builder.io/media/\" target=\"_blank\">\n                  Presentations, Podcasts, Videos, etc.\n                </a>\n              </li>\n            </ul>\n          </Infobox>\n        </div>\n      </div>\n    </>\n  );\n});\n\nexport const head: DocumentHead = {\n  title: \"Welcome to Qwik\",\n  meta: [\n    {\n      name: \"description\",\n      content: \"Qwik site description\",\n    },\n  ],\n};\n"
+        }
+    ]
+}

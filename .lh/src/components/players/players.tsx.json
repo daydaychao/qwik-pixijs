@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/players/players.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1695790972564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695790979520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n+import { component$ } from \"@builder.io/qwik\";\n+\n export default component$(() => {\n   useVisibleTask$(() => {\n     startPixi(\"#app\");\n   });\n \n   return (\n-    <main class=\"bg-dark\">\n-      <Players></Players>\n+    \n       <h1 class=\"fw100 animate-fade-in-down\">PIXI.js</h1>\n       <div id=\"app\" class=\"ma border border-dotted w-500px h-500px\"></div>\n     </main>\n   );\n"
+                },
+                {
+                    "date": 1695790985924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,7 @@\n   });\n \n   return (\n     \n-      <h1 class=\"fw100 animate-fade-in-down\">PIXI.js</h1>\n-      <div id=\"app\" class=\"ma border border-dotted w-500px h-500px\"></div>\n-    </main>\n+    <div>players:</div>\n   );\n });\n"
+                },
+                {
+                    "date": 1695790995003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,9 @@\n-import { component$ } from \"@builder.io/qwik\";\n+import { component$, useVisibleTask$ } from \"@builder.io/qwik\";\n \n export default component$(() => {\n   useVisibleTask$(() => {\n     startPixi(\"#app\");\n   });\n \n-  return (\n-    \n-    <div>players:</div>\n-  );\n+  return <div class=\"text-white\">players:</div>;\n });\n"
+                }
+            ],
+            "date": 1695790972564,
+            "name": "Commit-0",
+            "content": "export default component$(() => {\n  useVisibleTask$(() => {\n    startPixi(\"#app\");\n  });\n\n  return (\n    <main class=\"bg-dark\">\n      <Players></Players>\n      <h1 class=\"fw100 animate-fade-in-down\">PIXI.js</h1>\n      <div id=\"app\" class=\"ma border border-dotted w-500px h-500px\"></div>\n    </main>\n  );\n});\n"
+        }
+    ]
+}

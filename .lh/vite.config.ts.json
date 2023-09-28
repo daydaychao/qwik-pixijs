@@ -1,0 +1,42 @@
+{
+    "sourceFile": "vite.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1695695549668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695695556998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,14 @@\n import { qwikVite } from \"@builder.io/qwik/optimizer\";\n import { qwikCity } from \"@builder.io/qwik-city/vite\";\n import tsconfigPaths from \"vite-tsconfig-paths\";\n \n+\n+\n+import UnoCSS from 'unocss/vite'\n+import { defineConfig } from 'vite'\n+\n+\n export default defineConfig(() => {\n   return {\n     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],\n     preview: {\n@@ -13,12 +19,8 @@\n     },\n   };\n });\n \n-\n-import UnoCSS from 'unocss/vite'\n-import { defineConfig } from 'vite'\n-\n export default defineConfig({\n   plugins: [\n     UnoCSS(),\n   ],\n"
+                },
+                {
+                    "date": 1695695564699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n \n \n import UnoCSS from 'unocss/vite'\n-import { defineConfig } from 'vite'\n \n \n export default defineConfig(() => {\n   return {\n"
+                },
+                {
+                    "date": 1695695569819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,25 +2,17 @@\n import { qwikVite } from \"@builder.io/qwik/optimizer\";\n import { qwikCity } from \"@builder.io/qwik-city/vite\";\n import tsconfigPaths from \"vite-tsconfig-paths\";\n \n-\n-\n import UnoCSS from 'unocss/vite'\n \n \n export default defineConfig(() => {\n   return {\n-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],\n+    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), UnoCSS(),],\n     preview: {\n       headers: {\n         \"Cache-Control\": \"public, max-age=600\",\n       },\n     },\n   };\n });\n-\n-export default defineConfig({\n-  plugins: [\n-    UnoCSS(),\n-  ],\n\\ No newline at end of file\n-})\n"
+                },
+                {
+                    "date": 1695705646946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import tsconfigPaths from \"vite-tsconfig-paths\";\n \n import UnoCSS from 'unocss/vite'\n \n+import { presetAttributify, presetIcons, presetUno } from 'unocss'\n \n export default defineConfig(() => {\n   return {\n     plugins: [qwikCity(), qwikVite(), tsconfigPaths(), UnoCSS(),],\n"
+                },
+                {
+                    "date": 1695705665323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,14 @@\n       headers: {\n         \"Cache-Control\": \"public, max-age=600\",\n       },\n     },\n+         presets: [\n+        presetUno(),\n+        presetAttributify(),\n+        presetIcons({\n+          scale: 1.2,\n+          cdn: 'https://esm.sh/',\n+        }),\n+      ],\n   };\n });\n"
+                },
+                {
+                    "date": 1695705670542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import { qwikCity } from \"@builder.io/qwik-city/vite\";\n import tsconfigPaths from \"vite-tsconfig-paths\";\n \n import UnoCSS from 'unocss/vite'\n-\n import { presetAttributify, presetIcons, presetUno } from 'unocss'\n \n export default defineConfig(() => {\n   return {\n@@ -14,14 +13,14 @@\n       headers: {\n         \"Cache-Control\": \"public, max-age=600\",\n       },\n     },\n-         presets: [\n-        presetUno(),\n-        presetAttributify(),\n-        presetIcons({\n-          scale: 1.2,\n-          cdn: 'https://esm.sh/',\n-        }),\n-      ],\n+        presets: [\n+      presetUno(),\n+      presetAttributify(),\n+      presetIcons({\n+        scale: 1.2,\n+        cdn: 'https://esm.sh/',\n+      }),\n+    ],\n   };\n });\n"
+                }
+            ],
+            "date": 1695695549668,
+            "name": "Commit-0",
+            "content": "import { defineConfig } from \"vite\";\nimport { qwikVite } from \"@builder.io/qwik/optimizer\";\nimport { qwikCity } from \"@builder.io/qwik-city/vite\";\nimport tsconfigPaths from \"vite-tsconfig-paths\";\n\nexport default defineConfig(() => {\n  return {\n    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],\n    preview: {\n      headers: {\n        \"Cache-Control\": \"public, max-age=600\",\n      },\n    },\n  };\n});\n\n\nimport UnoCSS from 'unocss/vite'\nimport { defineConfig } from 'vite'\n\nexport default defineConfig({\n  plugins: [\n    UnoCSS(),\n  ],\n})"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/pixi/characters/createFaris.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1695887996305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695888005676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n   addMoveControl(app, player);\n };\n \n-const addMoveControl = (app: Application, player: Sprite, cb:) => {\n+const addMoveControl = (app: Application, player: Sprite, cb: () => void) => {\n   const speed = 10;\n \n   const keys: Record<any, boolean> = {};\n   window.addEventListener(\"keydown\", (e) => {\n@@ -43,9 +43,8 @@\n \n     player.x += dirX * speed;\n     player.y += dirY * speed;\n \n-    handleCollisions(player);\n   };\n \n   app.ticker.add(movingLoop);\n };\n"
+                },
+                {
+                    "date": 1695888015565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,13 @@\n   player.anchor.x = 0.5;\n   player.anchor.y = 0.5;\n   app.stage.addChild(player);\n \n-  addMoveControl(app, player);\n+  addMoveControl(app, player, () => { \n+\n+\n+    handleCollisions(player);\n+  });\n };\n \n const addMoveControl = (app: Application, player: Sprite, cb: () => void) => {\n   const speed = 10;\n"
+                },
+                {
+                    "date": 1695888028709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   player.anchor.y = 0.5;\n   app.stage.addChild(player);\n \n   addMoveControl(app, player, () => {\n-    handleCollisions(player);\n+    handleCollisions(appmplayer);\n   });\n };\n \n const addMoveControl = (app: Application, player: Sprite, cb: () => void) => {\n"
+                },
+                {
+                    "date": 1695888052805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { Application, Assets, Sprite } from \"pixi.js\";\n+import faris from \"../images/charactors/white-mage/faris0.jpg\";\n+import { handleCollisions } from \"../collisions\";\n+\n+export const createFaris = async (app: Application) => {\n+  const farisTexture = await Assets.load(faris);\n+  const player = new Sprite(farisTexture);\n+  player.x = app.renderer.width / 2;\n+  player.y = app.renderer.height / 2;\n+\n+  player.anchor.x = 0.5;\n+  player.anchor.y = 0.5;\n+  app.stage.addChild(player);\n+\n+  addMoveControl(app, player, () => {\n+    handleCollisions(app, player);\n+  });\n+};\n"
+                }
+            ],
+            "date": 1695887996305,
+            "name": "Commit-0",
+            "content": "import { Application, Assets, Sprite } from \"pixi.js\";\nimport faris from \"../images/charactors/white-mage/faris0.jpg\";\n\nexport const createFaris = async (app: Application) => {\n  const farisTexture = await Assets.load(faris);\n  const player = new Sprite(farisTexture);\n  player.x = app.renderer.width / 2;\n  player.y = app.renderer.height / 2;\n\n  player.anchor.x = 0.5;\n  player.anchor.y = 0.5;\n  app.stage.addChild(player);\n\n  addMoveControl(app, player);\n};\n\nconst addMoveControl = (app: Application, player: Sprite, cb:) => {\n  const speed = 10;\n\n  const keys: Record<any, boolean> = {};\n  window.addEventListener(\"keydown\", (e) => {\n    keys[e.key] = true;\n  });\n  window.addEventListener(\"keyup\", (e) => {\n    keys[e.key] = false;\n  });\n\n  const movingLoop = () => {\n    let dirX = 0;\n    let dirY = 0;\n\n    if (keys[\"ArrowUp\"] || keys[\"w\"]) dirY -= 1;\n    if (keys[\"ArrowDown\"] || keys[\"s\"]) dirY += 1;\n    if (keys[\"ArrowLeft\"] || keys[\"a\"]) dirX -= 1;\n    if (keys[\"ArrowRight\"] || keys[\"d\"]) dirX += 1;\n\n    // Normalize diagonal movement\n    if (dirX !== 0 && dirY !== 0) {\n      const length = Math.sqrt(dirX * dirX + dirY * dirY);\n      dirX /= length;\n      dirY /= length;\n    }\n\n    player.x += dirX * speed;\n    player.y += dirY * speed;\n\n    handleCollisions(player);\n  };\n\n  app.ticker.add(movingLoop);\n};\n"
+        }
+    ]
+}

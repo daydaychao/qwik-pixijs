@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/pixi/startPixi.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1695695158808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695705026526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import qwik from \"./assets/qwik.svg\";\n+import faris from \"./assets/qwik.svg\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n"
+                },
+                {
+                    "date": 1695705042707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"./assets/qwik.svg\";\n+import faris from \"public/\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n"
+                },
+                {
+                    "date": 1695705049278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import { Application, Assets, Sprite } from \"pixi.js\";\n+import faris from \"public/imgafaris.png\";\n+\n+export const startPixi = async (dom: string) => {\n+  const root = document.querySelector(dom);\n+  if (!root) return;\n+  const app = new Application();\n+  const qwikTexture = await Assets.load(qwik);\n+  const logo = new Sprite(qwikTexture);\n+\n+  logo.x = app.renderer.width / 2;\n+  logo.y = app.renderer.height / 2;\n+  logo.anchor.x = 0.5;\n+  logo.anchor.y = 0.5;\n+  app.stage.addChild(logo);\n+\n+  app.ticker.add(() => {\n+    logo.rotation += 0.01;\n+  });\n+};\n+\n+export default startPixi;\n"
+                },
+                {
+                    "date": 1695705054767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"public/imgafaris.png\";\n+import faris from \"public/images/charfaris.png\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n@@ -19,26 +19,4 @@\n   });\n };\n \n export default startPixi;\n-import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"public/\";\n-\n-export const startPixi = async (dom: string) => {\n-  const root = document.querySelector(dom);\n-  if (!root) return;\n-  const app = new Application();\n-  const qwikTexture = await Assets.load(qwik);\n-  const logo = new Sprite(qwikTexture);\n-\n-  logo.x = app.renderer.width / 2;\n-  logo.y = app.renderer.height / 2;\n-  logo.anchor.x = 0.5;\n-  logo.anchor.y = 0.5;\n-  app.stage.addChild(logo);\n-\n-  app.ticker.add(() => {\n-    logo.rotation += 0.01;\n-  });\n-};\n-\n-export default startPixi;\n"
+                },
+                {
+                    "date": 1695705060291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"public/images/charfaris.png\";\n+import faris from \"public/images/charactors/farisfaris.png\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n"
+                },
+                {
+                    "date": 1695705069232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"public/images/charactors/faris01.png\";\n+import faris from \"/public/images/charactors/faris01.png\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n"
+                },
+                {
+                    "date": 1695705075520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Application, Assets, Sprite } from \"pixi.js\";\n-import faris from \"/public/images/charactors/faris01.png\";\n+import faris from \"public/images/charactors/faris01.png\";\n \n export const startPixi = async (dom: string) => {\n   const root = document.querySelector(dom);\n   if (!root) return;\n"
+                }
+            ],
+            "date": 1695695158808,
+            "name": "Commit-0",
+            "content": "import { Application, Assets, Sprite } from \"pixi.js\";\nimport qwik from \"./assets/qwik.svg\";\n\nexport const startPixi = async (dom: string) => {\n  const root = document.querySelector(dom);\n  if (!root) return;\n  const app = new Application();\n  const qwikTexture = await Assets.load(qwik);\n  const logo = new Sprite(qwikTexture);\n\n  logo.x = app.renderer.width / 2;\n  logo.y = app.renderer.height / 2;\n  logo.anchor.x = 0.5;\n  logo.anchor.y = 0.5;\n  app.stage.addChild(logo);\n\n  app.ticker.add(() => {\n    logo.rotation += 0.01;\n  });\n};\n\nexport default startPixi;\n"
+        }
+    ]
+}

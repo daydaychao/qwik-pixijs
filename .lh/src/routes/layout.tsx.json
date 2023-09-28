@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/routes/layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695695378172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695695384767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,10 @@\n   useStyles$(styles);\n   return (\n     <>\n       <Header />\n-      <main></main>\n-      <Footer />\n+      <main>\n+        <Slot />\n+      </main>\n     </>\n   );\n });\n"
+                },
+                {
+                    "date": 1695695427276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,37 @@\n+import { component$, Slot, useStyles$ } from \"@builder.io/qwik\";\n+import { routeLoader$ } from \"@builder.io/qwik-city\";\n+import type { RequestHandler } from \"@builder.io/qwik-city\";\n+\n+import Footer from \"~/components/starter/footer/footer\";\n+\n+import styles from \"./styles.css?inline\";\n+\n+export const onGet: RequestHandler = async ({ cacheControl }) => {\n+  // Control caching for this request for best performance and to reduce hosting costs:\n+  // https://qwik.builder.io/docs/caching/\n+  cacheControl({\n+    // Always serve a cached response by default, up to a week stale\n+    staleWhileRevalidate: 60 * 60 * 24 * 7,\n+    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page\n+    maxAge: 5,\n+  });\n+};\n+\n+export const useServerTimeLoader = routeLoader$(() => {\n+  return {\n+    date: new Date().toISOString(),\n+  };\n+});\n+\n+export default component$(() => {\n+  useStyles$(styles);\n+  return (\n+    <>\n+      <Header />\n+      <main>\n+        <Slot />\n+      </main>\n+      <Footer />\n+    </>\n+  );\n+});\n"
+                }
+            ],
+            "date": 1695695378172,
+            "name": "Commit-0",
+            "content": "import { component$, Slot, useStyles$ } from \"@builder.io/qwik\";\nimport { routeLoader$ } from \"@builder.io/qwik-city\";\nimport type { RequestHandler } from \"@builder.io/qwik-city\";\n\nimport Header from \"~/components/starter/header/header\";\nimport Footer from \"~/components/starter/footer/footer\";\n\nimport styles from \"./styles.css?inline\";\n\nexport const onGet: RequestHandler = async ({ cacheControl }) => {\n  // Control caching for this request for best performance and to reduce hosting costs:\n  // https://qwik.builder.io/docs/caching/\n  cacheControl({\n    // Always serve a cached response by default, up to a week stale\n    staleWhileRevalidate: 60 * 60 * 24 * 7,\n    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page\n    maxAge: 5,\n  });\n};\n\nexport const useServerTimeLoader = routeLoader$(() => {\n  return {\n    date: new Date().toISOString(),\n  };\n});\n\nexport default component$(() => {\n  useStyles$(styles);\n  return (\n    <>\n      <main>\n        <Slot />\n      </main>\n      <Footer />\n    </>\n  );\n});\n"
+        }
+    ]
+}

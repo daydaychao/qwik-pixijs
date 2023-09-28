@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/root.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695707516507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695707718262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n   ServiceWorkerRegister,\n } from \"@builder.io/qwik-city\";\n import { RouterHead } from \"./components/router-head/router-head\";\n \n+\n+import \"@unocss/reset/normalize.css\";\n import \"./global.css\";\n import \"uno.css\";\n \n export default component$(() => {\n"
+                },
+                {
+                    "date": 1695707724771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   ServiceWorkerRegister,\n } from \"@builder.io/qwik-city\";\n import { RouterHead } from \"./components/router-head/router-head\";\n \n-import \"@unocss/reset/normalize.css\";\n+\n import \"uno.css\";\n \n export default component$(() => {\n   /**\n"
+                }
+            ],
+            "date": 1695707516507,
+            "name": "Commit-0",
+            "content": "import { component$ } from \"@builder.io/qwik\";\nimport {\n  QwikCityProvider,\n  RouterOutlet,\n  ServiceWorkerRegister,\n} from \"@builder.io/qwik-city\";\nimport { RouterHead } from \"./components/router-head/router-head\";\nimport \"uno.css\";\n\nimport \"./global.css\";\n\nexport default component$(() => {\n  /**\n   * The root of a QwikCity site always start with the <QwikCityProvider> component,\n   * immediately followed by the document's <head> and <body>.\n   *\n   * Don't remove the `<head>` and `<body>` elements.\n   */\n\n  return (\n    <QwikCityProvider>\n      <head>\n        <meta charSet=\"utf-8\" />\n        <link rel=\"manifest\" href=\"/manifest.json\" />\n        <RouterHead />\n        <ServiceWorkerRegister />\n      </head>\n      <body lang=\"en\">\n        <RouterOutlet />\n      </body>\n    </QwikCityProvider>\n  );\n});\n"
+        }
+    ]
+}

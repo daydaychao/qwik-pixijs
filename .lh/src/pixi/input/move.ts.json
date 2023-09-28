@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/pixi/input/move.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1695888055475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695888066985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import type { Application, Sprite } from \"pixi.js\";\n+\n export const addMoveControl = (\n   app: Application,\n   player: Sprite,\n   cb: () => void\n"
+                },
+                {
+                    "date": 1695888970252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import type { Application, Sprite } from \"pixi.js\";\n \n export const addMoveControl = (\n-  app: Application,\n+  app: Application & IStore,\n   player: Sprite,\n   cb: () => void\n ) => {\n   const speed = 10;\n"
+                }
+            ],
+            "date": 1695888055475,
+            "name": "Commit-0",
+            "content": "const addMoveControl = (app: Application, player: Sprite, cb: () => void) => {\n  const speed = 10;\n\n  const keys: Record<any, boolean> = {};\n  window.addEventListener(\"keydown\", (e) => {\n    keys[e.key] = true;\n  });\n  window.addEventListener(\"keyup\", (e) => {\n    keys[e.key] = false;\n  });\n\n  const movingLoop = () => {\n    let dirX = 0;\n    let dirY = 0;\n\n    if (keys[\"ArrowUp\"] || keys[\"w\"]) dirY -= 1;\n    if (keys[\"ArrowDown\"] || keys[\"s\"]) dirY += 1;\n    if (keys[\"ArrowLeft\"] || keys[\"a\"]) dirX -= 1;\n    if (keys[\"ArrowRight\"] || keys[\"d\"]) dirX += 1;\n\n    // Normalize diagonal movement\n    if (dirX !== 0 && dirY !== 0) {\n      const length = Math.sqrt(dirX * dirX + dirY * dirY);\n      dirX /= length;\n      dirY /= length;\n    }\n\n    player.x += dirX * speed;\n    player.y += dirY * speed;\n\n    cb();\n  };\n\n  app.ticker.add(movingLoop);\n};\n"
+        }
+    ]
+}

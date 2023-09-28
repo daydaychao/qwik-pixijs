@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pixi/characters/renderFaris.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1695890618926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695891900517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { Assets, Sprite } from \"pixi.js\";\n-import type { IApp } from \"../../startPixi\";\n+import type { IApp } from \"../startPixi\";\n \n interface IRenderProps {\n   app: IApp;\n   texture: string;\n"
+                }
+            ],
+            "date": 1695890618926,
+            "name": "Commit-0",
+            "content": "import { Assets, Sprite } from \"pixi.js\";\nimport faris from \"../images/charactors/white-mage/faris0.jpg\";\nimport { handleCollisions } from \"../input/collisions\";\nimport { addMoveControl } from \"../input/move\";\nimport type { IApp } from \"../startPixi\";\n\nexport const renderFaris = async (app: IApp, texture: string, x = 0, y = 0) => {\n  const farisTexture = await Assets.load(faris);\n  const player = new Sprite(farisTexture);\n  player.x = x ? app.renderer.width / 2 : x;\n  player.y = y ? app.renderer.height / 2 : y;\n\n  player.anchor.x = 0.5;\n  player.anchor.y = 0.5;\n  app.stage.addChild(player);\n\n  addMoveControl(app, player, () => {\n    handleCollisions(app, player);\n  });\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pixi/characters/renderSprite.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1695892422554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1695892422554,
+            "name": "Commit-0",
+            "content": "import { Assets, Sprite } from \"pixi.js\";\nimport type { IApp } from \"../startPixi\";\n\ninterface IRenderProps {\n  app: IApp;\n  texture: string;\n  x: number;\n  y: number;\n}\nexport const renderSprite = async ({\n  app,\n  texture,\n  x,\n  y,\n}: IRenderProps): Promise<Sprite> => {\n  const textureLoaded = await Assets.load(texture);\n  const sprite = new Sprite(textureLoaded);\n  sprite.x = x ? app.renderer.width / 2 : x;\n  sprite.y = y ? app.renderer.height / 2 : y;\n\n  sprite.anchor.x = 0.5;\n  sprite.anchor.y = 0.5;\n  app.stage.addChild(sprite);\n\n  return sprite;\n};\n"
+        }
+    ]
+}

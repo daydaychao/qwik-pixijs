@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/pixi/collisions.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1695886353717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695886372595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,4 +15,15 @@\n     rock.x += dirX * speed;\n     rock.y += dirY * speed;\n   }\n };\n+\n+function checkCollision(obj1, obj2) {\n+  const bounds1 = obj1.sprite.getBounds();\n+  const bounds2 = obj2.sprite.getBounds();\n+  return (\n+    bounds1.x + bounds1.width > bounds2.x &&\n+    bounds1.x < bounds2.x + bounds2.width &&\n+    bounds1.y + bounds1.height > bounds2.y &&\n+    bounds1.y < bounds2.y + bounds2.height\n+  );\n+}\n"
+                },
+                {
+                    "date": 1695886625377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n // 處理碰撞\n export const handleCollisions = () => {\n   // 檢查角色和其他物體之間的碰撞\n-  if (checkCollision(player, slime)) {\n+  if (checkCollision(player:, slime)) {\n     // 如果碰到 slime，停止角色移動\n     player.x -= dirX * speed;\n     player.y -= dirY * speed;\n   }\n"
+                },
+                {
+                    "date": 1695886764951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n // 處理碰撞\n export const handleCollisions = () => {\n   // 檢查角色和其他物體之間的碰撞\n-  if (checkCollision(player:, slime)) {\n+  if (checkCollision(player:Sprite, slime)) {\n     // 如果碰到 slime，停止角色移動\n     player.x -= dirX * speed;\n     player.y -= dirY * speed;\n   }\n"
+                },
+                {
+                    "date": 1695886773226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n // 處理碰撞\n export const handleCollisions = () => {\n   // 檢查角色和其他物體之間的碰撞\n-  if (checkCollision(player:Sprite, slime:Sprite)) {\n+  if (checkCollision(player, slime)) {\n     // 如果碰到 slime，停止角色移動\n     player.x -= dirX * speed;\n     player.y -= dirY * speed;\n   }\n@@ -16,14 +16,5 @@\n     rock.y += dirY * speed;\n   }\n };\n \n-function checkCollision(obj1, obj2) {\n-  const bounds1 = obj1.sprite.getBounds();\n-  const bounds2 = obj2.sprite.getBounds();\n-  return (\n-    bounds1.x + bounds1.width > bounds2.x &&\n-    bounds1.x < bounds2.x + bounds2.width &&\n-    bounds1.y + bounds1.height > bounds2.y &&\n-    bounds1.y < bounds2.y + bounds2.height\n-  );\n-}\n+\n"
+                },
+                {
+                    "date": 1695886795414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,4 +15,16 @@\n     rock.x += dirX * speed;\n     rock.y += dirY * speed;\n   }\n };\n+\n+\n+function checkCollision(sprite1, sprite2) {\n+  const bounds1 = sprite1.getBounds();\n+  const bounds2 = sprite2.getBounds();\n+  return (\n+    bounds1.x + bounds1.width > bounds2.x &&\n+    bounds1.x < bounds2.x + bounds2.width &&\n+    bounds1.y + bounds1.height > bounds2.y &&\n+    bounds1.y < bounds2.y + bounds2.height\n+  );\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1695886353717,
+            "name": "Commit-0",
+            "content": "// 處理碰撞\nexport const handleCollisions = () => {\n  // 檢查角色和其他物體之間的碰撞\n  if (checkCollision(player, slime)) {\n    // 如果碰到 slime，停止角色移動\n    player.x -= dirX * speed;\n    player.y -= dirY * speed;\n  }\n\n  // 檢查角色和其他物體之間的碰撞\n  if (checkCollision(player, rock)) {\n    // 如果碰到 rock，角色和 rock 都可以推動它\n    player.x += dirX * speed;\n    player.y += dirY * speed;\n    rock.x += dirX * speed;\n    rock.y += dirY * speed;\n  }\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/pixi/characters/faris/renderFaris.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1695890643904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1695890780781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async (app: IApp, texture: string, x = 0, y = 0) => {\n+export const \n+ = async (app: IApp, texture: string, x = 0, y = 0) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n"
+                },
+                {
+                    "date": 1695890812731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import { Assets, Sprite } from \"pixi.js\";\n+import faris from \"../images/charactors/white-mage/faris0.jpg\";\n+import { handleCollisions } from \"../../input/collisions\";\n+import { addMoveControl } from \"../../input/move\";\n+import type { IApp } from \"../../startPixi\";\n+\n+export const renderFaris = async (app: IApp, texture?: string, x = 0, y = 0) => {\n+  const farisTexture = await Assets.load(faris);\n+  const player = new Sprite(farisTexture);\n+  player.x = x ? app.renderer.width / 2 : x;\n+  player.y = y ? app.renderer.height / 2 : y;\n+\n+  player.anchor.x = 0.5;\n+  player.anchor.y = 0.5;\n+  app.stage.addChild(player);\n+\n+  addMoveControl(app, player, () => {\n+    handleCollisions(app, player);\n+  });\n+};\n"
+                },
+                {
+                    "date": 1695890821985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async (app: IApp, texture?: string, x = 0, y = 0) => {\n+export const renderFaris = async ({app: IApp, texture?: string, x = 0, y = 0}:{app: IApp, texture?: string, x = 0, y = 0}) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n@@ -17,25 +17,4 @@\n   addMoveControl(app, player, () => {\n     handleCollisions(app, player);\n   });\n };\n-import { Assets, Sprite } from \"pixi.js\";\n-import faris from \"../images/charactors/white-mage/faris0.jpg\";\n-import { handleCollisions } from \"../../input/collisions\";\n-import { addMoveControl } from \"../../input/move\";\n-import type { IApp } from \"../../startPixi\";\n-\n-export const \n- = async (app: IApp, texture: string, x = 0, y = 0) => {\n-  const farisTexture = await Assets.load(faris);\n-  const player = new Sprite(farisTexture);\n-  player.x = x ? app.renderer.width / 2 : x;\n-  player.y = y ? app.renderer.height / 2 : y;\n-\n-  player.anchor.x = 0.5;\n-  player.anchor.y = 0.5;\n-  app.stage.addChild(player);\n-\n-  addMoveControl(app, player, () => {\n-    handleCollisions(app, player);\n-  });\n-};\n"
+                },
+                {
+                    "date": 1695890827990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async ({app: IApp, texture?: string, x = 0, y = 0}:{app: IApp, texture?: string, x = 0, y = 0}) => {\n+export const renderFaris = async ({app, texture?, x , y = 0}:{app: IApp, texture?: string, x = 0, y = 0}) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n"
+                },
+                {
+                    "date": 1695890839654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async ({app, texture?, x , y = 0}:{app: IApp, texture?: string, x = 0, y = 0}) => {\n+export const renderFaris = async ({app, texture?, x , y }:{app: IApp, texture?: string, x:number, y = 0}) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n"
+                },
+                {
+                    "date": 1695890847996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async ({app, texture?, x , y }:{app: IApp, texture?: string, x:number, y :number}) => {\n+export const renderFaris = async ({app, texture, x , y }:{app: IApp, texture?: string, x:number, y :number}) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n"
+                },
+                {
+                    "date": 1695890857445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { handleCollisions } from \"../../input/collisions\";\n import { addMoveControl } from \"../../input/move\";\n import type { IApp } from \"../../startPixi\";\n \n-export const renderFaris = async () => {\n+export const renderFaris = async ({app, texture, x , y }:{app: IApp, texture?: string, x:number, y :number}) => {\n   const farisTexture = await Assets.load(faris);\n   const player = new Sprite(farisTexture);\n   player.x = x ? app.renderer.width / 2 : x;\n   player.y = y ? app.renderer.height / 2 : y;\n"
+                }
+            ],
+            "date": 1695890643904,
+            "name": "Commit-0",
+            "content": "import { Assets, Sprite } from \"pixi.js\";\nimport faris from \"../images/charactors/white-mage/faris0.jpg\";\nimport { handleCollisions } from \"../../input/collisions\";\nimport { addMoveControl } from \"../../input/move\";\nimport type { IApp } from \"../../startPixi\";\n\nexport const renderFaris = async (app: IApp, texture: string, x = 0, y = 0) => {\n  const farisTexture = await Assets.load(faris);\n  const player = new Sprite(farisTexture);\n  player.x = x ? app.renderer.width / 2 : x;\n  player.y = y ? app.renderer.height / 2 : y;\n\n  player.anchor.x = 0.5;\n  player.anchor.y = 0.5;\n  app.stage.addChild(player);\n\n  addMoveControl(app, player, () => {\n    handleCollisions(app, player);\n  });\n};\n"
+        }
+    ]
+}
