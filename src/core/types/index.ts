@@ -14,13 +14,12 @@ export enum MapLayerEnum {
   EFFECT = 4,
 }
 
-export interface ICharStatus {
+export interface ICharacter {
   charId: string;
   name: string;
   hp: number;
   mv: number;
   collision: CollisionEnum;
   mapLayer: MapLayerEnum;
+  sprite: Sprite;
 }
-
-export type ICharacter = ICharStatus & { sprite: Sprite };

@@ -12,7 +12,6 @@ export const startPixi = async (dom: string) => {
   root.appendChild(pixiApp.view);
 
   const app = initAppStore(pixiApp);
-
   runScene01(app); // 開始遊戲
 };
 
