@@ -6,11 +6,14 @@ export const save = async ({
   app,
   character,
   sprite,
+  scene,
 }: {
   app: IApp;
   character?: ICharacter;
   sprite?: Sprite;
+  scene?: string;
 }) => {
   if (character) app.store.allCharacters.push(character);
-  if (sprite) app.store.allCharacters.push();
+  if (sprite) app.store.allSprites.push();
+  if (scene) app.store.scene = scene;
 };
