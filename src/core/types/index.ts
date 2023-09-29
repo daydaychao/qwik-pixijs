@@ -30,3 +30,5 @@ export interface ICharacter {
   }
   direction?: 'up' | 'down' | 'left' | 'right'
 }
+
+export type IDirection = 'up' | 'down' | 'left' | 'right'

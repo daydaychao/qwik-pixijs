@@ -1,0 +1,1 @@
+-[ ] zustand character binding anime
