@@ -20,7 +20,6 @@ export const startPixi = async (dom: string) => {
 export type IApp = Application & {
   store: {
     scene: string
-    allSprites: Sprite[]
     allCharacters: ICharacter[]
   }
 }
@@ -28,7 +27,6 @@ export const initAppStore = (app: Application<ICanvas>): IApp => {
   // 創建並初始化新的 store
   const initStore: IApp['store'] = {
     scene: '',
-    allSprites: [],
     allCharacters: [], // 初始化新屬性，根據你的需求設定初始值
   }
 

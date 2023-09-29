@@ -28,6 +28,9 @@ export const initAnimations = async ({
   }
 
   // set scale
+  Object.values(animations).forEach((anime) => anime.position.set(x, y))
+
+  // set scale
   Object.values(animations).forEach((anime) => anime.scale.set(scale, scale))
 
   // set anchor
@@ -37,8 +40,7 @@ export const initAnimations = async ({
   Object.values(animations).forEach((anime) => (anime.animationSpeed = animationSpeed))
 
   // add to stage
-  const anime = app.stage.addChild(animations.up)
-  anime.play()
+  app.stage.addChild(animations.up)
   app.stage.addChild(animations.down)
   app.stage.addChild(animations.left)
   app.stage.addChild(animations.right)

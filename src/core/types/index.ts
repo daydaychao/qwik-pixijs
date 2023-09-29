@@ -22,12 +22,7 @@ export interface ICharacter {
   collision: CollisionEnum
   mapLayer: MapLayerEnum
   sprite: Sprite
-  animations?: {
-    up: AnimatedSprite
-    down: AnimatedSprite
-    left: AnimatedSprite
-    right: AnimatedSprite
-  }
+  animations?: Record<any, any>
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 

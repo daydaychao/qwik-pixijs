@@ -6,20 +6,14 @@ import { nanoid } from 'nanoid'
 import { save } from '~/pixi/system/save'
 import { addMoveControl } from '~/pixi/movement/move'
 
-import faris0 from '~/images/charactors/white-mage/ff5_faris-0.png'
-import faris1 from '~/images/charactors/white-mage/ff5_faris-1.png'
-import faris2 from '~/images/charactors/white-mage/ff5_faris-2.png'
+import farisLeft0 from '~/images/charactors/white-mage/left/0.png'
+import farisLeft1 from '~/images/charactors/white-mage/left/1.png'
+import farisRight0 from '~/images/charactors/white-mage/right/0.png'
+import farisRight1 from '~/images/charactors/white-mage/right/1.png'
 
 import faris3 from '~/images/charactors/white-mage/ff5_faris-3.png'
 import faris4 from '~/images/charactors/white-mage/ff5_faris-4.png'
 import faris5 from '~/images/charactors/white-mage/ff5_faris-5.png'
-
-import faris6 from '~/images/charactors/white-mage/ff5_faris-6.png'
-import faris7 from '~/images/charactors/white-mage/ff5_faris-7.png'
-import faris8 from '~/images/charactors/white-mage/ff5_faris-8.png'
-
-import faris9 from '~/images/charactors/white-mage/ff5_faris-9.png'
-import faris10 from '~/images/charactors/white-mage/ff5_faris-10.png'
 
 import { initAnimations as initAnimations } from '../initAnimations'
 
@@ -38,10 +32,10 @@ export const Faris = async (app: IApp, x = 0, y = 0): Promise<ICharacter> => {
   sprite.visible = false
 
   const dirList = {
-    up: [faris0, faris1, faris2],
+    up: [faris3, faris3, faris3],
     down: [faris3, faris4, faris5],
-    left: [faris6, faris7, faris8],
-    right: [faris9, faris10],
+    left: [farisLeft0, farisLeft1],
+    right: [farisRight0, farisRight1],
   }
   const animations = await initAnimations({ app, dirList, scale, x, y, animationSpeed })
 
@@ -53,12 +47,16 @@ export const Faris = async (app: IApp, x = 0, y = 0): Promise<ICharacter> => {
     collision: CollisionEnum.CAN_NOT_PUSH,
     mapLayer: MapLayerEnum.CHARACTER,
     sprite: sprite,
-    animations: animations,
+    animations: {
+      move: {
+        ...animations,
+      },
+    },
     direction: 'down', // 初始方向
   }
 
   addMoveControl(app, faris)
 
-  save({ app, character: faris, sprite: sprite })
+  save({ app, character: faris })
   return faris
 }
