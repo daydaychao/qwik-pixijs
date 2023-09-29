@@ -1,11 +1,11 @@
 import { CollisionEnum, MapLayerEnum, type ICharacter } from '~/core/types'
 import type { IApp } from '../../startPixi'
-import { renderSprite } from '../renderSprite'
+import { initSprite } from '../initSprite'
 import stoneImg from '~/images/objects/stone.png'
 import { nanoid } from 'nanoid'
 import { save } from '~/pixi/system/save'
 export const Stone = async (app: IApp, x = 0, y = 0): Promise<ICharacter> => {
-  const sprite = await renderSprite({
+  const sprite = await initSprite({
     app: app,
     texture: stoneImg,
     x: x,

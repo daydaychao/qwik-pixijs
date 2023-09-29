@@ -7,7 +7,7 @@ interface IRenderProps {
   x: number
   y: number
 }
-export const renderSprite = async ({ app, texture, x, y }: IRenderProps): Promise<Sprite> => {
+export const initSprite = async ({ app, texture, x, y }: IRenderProps): Promise<Sprite> => {
   const textureLoaded = await Assets.load(texture)
   const sprite = new Sprite(textureLoaded)
   sprite.x = x ? app.renderer.width / 2 : x
