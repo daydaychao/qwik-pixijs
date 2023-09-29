@@ -1,4 +1,4 @@
-import type { Sprite } from "pixi.js";
+import type { Sprite } from 'pixi.js'
 
 export enum CollisionEnum {
   NO_COLLISION = 0,
@@ -15,11 +15,11 @@ export enum MapLayerEnum {
 }
 
 export interface ICharacter {
-  charId: string;
-  name: string;
-  hp: number;
-  mv: number;
-  collision: CollisionEnum;
-  mapLayer: MapLayerEnum;
-  sprite: Sprite;
+  charId: string
+  name: string
+  hp: number
+  mv: number
+  collision: CollisionEnum
+  mapLayer: MapLayerEnum
+  sprite: Sprite
 }

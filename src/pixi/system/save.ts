@@ -1,6 +1,6 @@
-import type { ICharacter } from "~/core/types";
-import type { IApp } from "../startPixi";
-import type { Sprite } from "pixi.js";
+import type { ICharacter } from '~/core/types'
+import type { IApp } from '../startPixi'
+import type { Sprite } from 'pixi.js'
 
 export const save = async ({
   app,
@@ -8,12 +8,12 @@ export const save = async ({
   sprite,
   scene,
 }: {
-  app: IApp;
-  character?: ICharacter;
-  sprite?: Sprite;
-  scene?: string;
+  app: IApp
+  character?: ICharacter
+  sprite?: Sprite
+  scene?: string
 }) => {
-  if (character) app.store.allCharacters.push(character);
-  if (sprite) app.store.allSprites.push();
-  if (scene) app.store.scene = scene;
-};
+  if (character) app.store.allCharacters.push(character)
+  if (sprite) app.store.allSprites.push()
+  if (scene) app.store.scene = scene
+}
