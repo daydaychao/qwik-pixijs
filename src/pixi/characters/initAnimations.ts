@@ -1,23 +1,16 @@
 import { type Resource, type TextureSource, Texture, AnimatedSprite } from 'pixi.js'
 import type { IApp } from '../startPixi'
+import type  { IDefaultCharProps } from './initCharacter'
 
-type IInitAnimeProp = {
-  app: IApp
-  dirList: Record<string, string[]>
-  scale: number
-  x: number
-  y: number
-  animationSpeed: number
-}
+
+export type IInitAnimationsProps =  Pick<IDefaultCharProps,"animationSpeed"| "dirList"| "scale">
 type IInitAnimeReturn = Record<'up' | 'down' | 'left' | 'right', AnimatedSprite>
-export const initAnimations = async ({
-  app,
+export const initAnimations = async (app:IApp,{
   animationSpeed,
   dirList,
   scale = 1,
-  x = 0,
-  y = 0,
-}: IInitAnimeProp): Promise<IInitAnimeReturn> => {
+}: IInitAnimationsProps ): Promise<IInitAnimeReturn | null> => {
+  if (!dirList) return null
   const { leftFrames, rightFrames, upFrames, downFrames } = createFrames(dirList)
 
   const animations = {
@@ -28,7 +21,7 @@ export const initAnimations = async ({
   }
 
   // set scale
-  Object.values(animations).forEach((anime) => anime.position.set(x, y))
+  Object.values(animations).forEach((anime) => anime.position.set(0, 0))
 
   // set scale
   Object.values(animations).forEach((anime) => anime.scale.set(scale, scale))

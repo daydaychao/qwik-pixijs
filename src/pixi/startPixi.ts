@@ -21,6 +21,7 @@ export type IApp = Application & {
   store: {
     scene: string
     allCharacters: ICharacter[]
+    keys: Record<any, boolean>
   }
 }
 export const initAppStore = (app: Application<ICanvas>): IApp => {
@@ -28,6 +29,7 @@ export const initAppStore = (app: Application<ICanvas>): IApp => {
   const initStore: IApp['store'] = {
     scene: '',
     allCharacters: [], // 初始化新屬性，根據你的需求設定初始值
+    keys: {},
   }
 
   // 創建新的 IApp
