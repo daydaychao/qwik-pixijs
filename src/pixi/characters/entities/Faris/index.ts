@@ -22,11 +22,12 @@ export const Faris = async (app: IApp, name = 'Faris', x = 0, y = 0, isPlayer = 
   const scale = 1.5
   const spriteTexture = farisLeft0
   const animationSpeed = 0.05
-  const dirList = {
+  const frameMaps = {
     up: [faris3, faris3, faris3],
-    down: [faris3, faris4, faris5],
+    down: [faris3, faris3, faris3],
     left: [farisLeft0, farisLeft1],
     right: [farisRight0, farisRight1],
+    attack: [faris3, faris4, faris5],
   }
 
   const defaultCharData = {
@@ -42,7 +43,7 @@ export const Faris = async (app: IApp, name = 'Faris', x = 0, y = 0, isPlayer = 
     app,
     spriteTexture,
     animationSpeed,
-    dirList,
+    frameMaps,
     isPlayer,
   }
 

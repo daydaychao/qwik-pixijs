@@ -14,7 +14,7 @@ export const Stone = async (app: IApp, name = 'Stone', x = 0, y = 0, isPlayer = 
   const scale = 1.5
   const spriteTexture = stoneImg
   const animationSpeed = 0.05
-  const dirList = null
+  const frameList = null
 
   const defaultCharData = {
     name,
@@ -29,7 +29,7 @@ export const Stone = async (app: IApp, name = 'Stone', x = 0, y = 0, isPlayer = 
     app,
     spriteTexture,
     animationSpeed,
-    dirList,
+    frameList,
     isPlayer,
   }
 

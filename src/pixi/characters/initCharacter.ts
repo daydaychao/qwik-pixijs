@@ -7,30 +7,28 @@ import { Container } from 'pixi.js'
 import { nanoid } from 'nanoid'
 
 export interface IDefaultCharProps {
-    hp: number
-    mv: number
-    x: number
-    y: number
-    name: string
-    charId: string
-    collision: CollisionEnum
-    mapLayer: MapLayerEnum
-    spriteTexture: string
-    animationSpeed: number
-    dirList: Record<string, string[]> | null
-    scale: number
-    isPlayer: boolean
-  }
+  hp: number
+  mv: number
+  x: number
+  y: number
+  name: string
+  charId: string
+  collision: CollisionEnum
+  mapLayer: MapLayerEnum
+  spriteTexture: string
+  animationSpeed: number
+  frameMaps: Record<string, string[]> | null
+  scale: number
+  isPlayer: boolean
+}
 
-export const initCharacter = async (
-  app: IApp, ctx: IDefaultCharProps) => {
-
+export const initCharacter = async (app: IApp, ctx: IDefaultCharProps) => {
   const sprite = await initSprite({
     app: app,
     texture: ctx.spriteTexture,
     scale: ctx.scale,
   })
-  const animations = await initAnimations(app,ctx)
+  const animations = await initAnimations(app, ctx)
   const container = new Container()
 
   // create character
@@ -46,7 +44,7 @@ export const initCharacter = async (
     container: container,
     sprite: sprite,
     mapLayer: ctx.mapLayer,
-    animations: animations? { move: { ...animations } }:null,
+    animations: animations ? { move: { ...animations } } : null,
     direction: 'right', // 初始方向
     isPlayer: ctx.isPlayer,
   }

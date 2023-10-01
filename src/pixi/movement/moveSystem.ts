@@ -1,7 +1,7 @@
 import type { ICharacter, IDirection } from '~/core/types'
 import type { IApp } from '../startPixi'
 import { updateMovement } from './updateMovement'
-import { updateMoveAnime } from './updateMoveAnimate'
+import { updateMoveAnime } from './updateAnimate'
 
 export function moveSystem(app: IApp, moveCharacters: ICharacter[]) {
   // player input
