@@ -17,14 +17,12 @@ export const updateAnimate = ({ character }: { character: ICharacter }) => {
     // 播放动画
     if (playKey == '') return
     if (anime == playKey) {
-      console.log({ type: 'yes', playKey, anime })
       animations[anime].visible = true
       animations[anime].play()
     }
 
     // 停止/隱藏 其他动画
     if (anime !== playKey) {
-      console.log({ type: 'no', playKey, anime })
       animations[anime].stop()
       animations[anime].visible = false
     }

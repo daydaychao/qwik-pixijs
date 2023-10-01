@@ -15,34 +15,20 @@ interface IUpdateMovement {
 export const updateMovement = async ({ self, targets, dirX, dirY, direction }: IUpdateMovement) => {
   self.animeKey = direction
 
-  // 沒碰撞,自己移動
-  if (!targets.length) {
-    console.log('%cMOVE', 'color: lightblue')
-    console.log('updateMovement', { forceX: dirX * self.mv, forceY: dirY * self.mv })
-    updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, character: self })
-    return
-  }
+  // 計算自己
+  updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, character: self })
 
+  // 別人一起計算
   targets.forEach((target) => {
-    // 沒碰撞,自己移動
-    if (!checkCollision(self.sprite, target.sprite)) {
-      console.log('%cMOVE', 'color: lightblue')
-      console.log('updateMovement', { forceX: dirX * self.mv, forceY: dirY * self.mv })
-      updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, character: self })
-      return
-    }
-
-    if (target.collision === CollisionEnum.CAN_NOT_PUSH) {
+    const touched = checkCollision(self.sprite, target.sprite)
+    if (touched && target.collision === CollisionEnum.CAN_NOT_PUSH) {
       console.log('%cCAN_NOT_PUSH', 'color: red')
-
-      // 停止角色移動
-      updateCharPosition({ forceX: 0, forceY: 0, character: self })
-      updateCharPosition({ forceX: 0, forceY: 0, character: target })
+      updateCharPosition({ forceX: -dirX * self.mv, forceY: -dirY * self.mv, character: self })
       return
     }
 
     // 检查角色和其他物体之间的碰撞
-    if (target.collision === CollisionEnum.CAN_PUSH) {
+    if (touched && target.collision === CollisionEnum.CAN_PUSH) {
       console.log('%cCAN_PUSH', 'color: lightgreen')
       let moveData = { charMoveX: 0, charMoveY: 0, targetMoveX: 0, targetMoveY: 0 }
       const offset = 5
@@ -57,9 +43,8 @@ export const updateMovement = async ({ self, targets, dirX, dirY, direction }: I
         moveData = { charMoveX: 0, charMoveY: dirY * self.mv, targetMoveX: 0, targetMoveY: dirY * self.mv * offset }
       }
 
-      // 停止角色移動
+      // 停止角色推東西
       updateCharPosition({ forceX: moveData.targetMoveX, forceY: moveData.targetMoveY, character: target })
-      updateCharPosition({ forceX: moveData.charMoveX, forceY: moveData.charMoveY, character: self })
       return
     }
   })

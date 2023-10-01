@@ -1,4 +1,4 @@
-import type { ICharacter, IDirection } from '~/core/types'
+import type { ICharacter } from '~/core/types'
 
 // 更新角色移動
 export const updateCharPosition = ({
@@ -13,7 +13,5 @@ export const updateCharPosition = ({
   character.x += forceX
   character.y += forceY
   character.container.position.set(character.x, character.y)
-
-  console.log('pos', character.container.position)
   return character
 }

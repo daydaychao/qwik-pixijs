@@ -9,7 +9,7 @@ export const runScene01 = async (app: IApp) => {
   await Faris(app, 'Faris', 20, 20, true)
   await Faris(app, 'Faris2', 80, 90)
   await Stone(app, 'Stone1', 100, 100, false)
-  // await Stone(app, 'Stone2', 120, 120, false)
+  await Stone(app, 'Stone2', 120, 120, false)
 
   const allCharacters = app.store.allCharacters
   moveSystem(app, allCharacters)
