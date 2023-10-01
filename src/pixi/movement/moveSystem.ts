@@ -1,7 +1,7 @@
 import type { ICharacter, IDirection } from '~/core/types'
 import type { IApp } from '../startPixi'
+import { updateAnimate } from './updateAnimate'
 import { updateMovement } from './updateMovement'
-import { updateMoveAnime } from './updateAnimate'
 
 export function moveSystem(app: IApp, moveCharacters: ICharacter[]) {
   // player input
@@ -35,9 +35,11 @@ export function moveSystem(app: IApp, moveCharacters: ICharacter[]) {
     //player moving
     const character = moveCharacters.find((character) => character.isPlayer)
     if (!character) return
+
     const { dirY, dirX, direction } = getInputKeyDirection()
+    character.direction = direction
     const targets = app.store.allCharacters.filter((target: ICharacter) => target.charId !== character.charId)
-    updateMoveAnime({ animation: character.animations?.move, direction })
     updateMovement({ dirX: dirX * delta, dirY: dirY * delta, direction, self: character, targets })
+    updateAnimate({ character })
   })
 }

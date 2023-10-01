@@ -1,4 +1,4 @@
-import type { Container, Sprite } from 'pixi.js'
+import type { AnimatedSprite, Container, Sprite } from 'pixi.js'
 
 export enum CollisionEnum {
   NO_COLLISION = 0,
@@ -24,10 +24,11 @@ export interface ICharacter {
   collision: CollisionEnum
   mapLayer: MapLayerEnum
   sprite?: Sprite
-  animations?: Record<any, any> | null
+  animations: Record<any, AnimatedSprite> | null
   container: Container
   direction: IDirection
   isPlayer: boolean
+  animeKey: string
 }
 
 export type IDirection = 'up' | 'down' | 'left' | 'right' | ''

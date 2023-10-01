@@ -1,35 +1,26 @@
-import type { CollisionEnum, ICharacter, MapLayerEnum } from '~/core/types'
+import type { ICharacter } from '~/core/types'
 import type { IApp } from '../startPixi'
 import { initSprite } from './initSprite'
 import { save } from '~/pixi/system/save'
 import { initAnimations } from './initAnimations'
-import { Container } from 'pixi.js'
 import { nanoid } from 'nanoid'
+import { isEmpty, isNil } from 'ramda'
+import { type AnimatedSprite } from 'pixi.js'
 
 export interface IDefaultCharProps {
-  hp: number
-  mv: number
-  x: number
-  y: number
-  name: string
-  charId: string
-  collision: CollisionEnum
-  mapLayer: MapLayerEnum
   spriteTexture: string
   animationSpeed: number
-  frameMaps: Record<string, string[]> | null
   scale: number
-  isPlayer: boolean
+  frameMaps: Record<string, AnimatedSprite[]> | null
 }
 
-export const initCharacter = async (app: IApp, ctx: IDefaultCharProps) => {
+export const initCharacter = async (app: IApp, ctx: ICharacter & IDefaultCharProps) => {
   const sprite = await initSprite({
     app: app,
     texture: ctx.spriteTexture,
     scale: ctx.scale,
   })
   const animations = await initAnimations(app, ctx)
-  const container = new Container()
 
   // create character
   const character: ICharacter = {
@@ -40,25 +31,27 @@ export const initCharacter = async (app: IApp, ctx: IDefaultCharProps) => {
     y: ctx.y,
     charId: nanoid(),
     collision: ctx.collision,
-
-    container: container,
+    container: ctx.container,
     sprite: sprite,
     mapLayer: ctx.mapLayer,
-    animations: animations ? { move: { ...animations } } : null,
-    direction: 'right', // 初始方向
+    animations: animations ? animations : null,
+    direction: ctx.direction || 'down',
     isPlayer: ctx.isPlayer,
+    animeKey: ctx.animeKey,
   }
 
+  const container = character.container
   container.addChild(sprite)
-  if (animations?.up) {
+
+  sprite.visible = true
+  if (!isEmpty(animations) && !isNil(animations)) {
     sprite.visible = false
-    container.addChild(animations.up)
-    container.addChild(animations.down)
-    container.addChild(animations.left)
-    container.addChild(animations.right)
+    for (const key in animations) {
+      container.addChild(animations[key])
+    }
   }
+
   app.stage.addChild(container)
-  console.log({ name: character.name, x: character.x, y: character.y })
   container.position.set(character.x, character.y)
 
   save({ app, character })

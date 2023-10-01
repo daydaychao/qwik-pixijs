@@ -5,18 +5,15 @@ export const updateCharPosition = ({
   forceX,
   forceY,
   character,
-  direction,
 }: {
   forceX: number
   forceY: number
   character: ICharacter
-  direction: IDirection
 }) => {
-  character.direction = direction
   character.x += forceX
   character.y += forceY
-  character.container.x = character.x
-  character.container.y = character.y
+  character.container.position.set(character.x, character.y)
 
-  return { charX: character.x, charY: character.y, direction }
+  console.log('pos', character.container.position)
+  return character
 }

@@ -13,12 +13,22 @@ interface IUpdateMovement {
 }
 
 export const updateMovement = async ({ self, targets, dirX, dirY, direction }: IUpdateMovement) => {
+  self.animeKey = direction
+
+  // 沒碰撞,自己移動
+  if (!targets.length) {
+    console.log('%cMOVE', 'color: lightblue')
+    console.log('updateMovement', { forceX: dirX * self.mv, forceY: dirY * self.mv })
+    updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, character: self })
+    return
+  }
+
   targets.forEach((target) => {
-    // 檢查角色和其他物體之間的碰撞
-    if (target.charId === self.charId) return
+    // 沒碰撞,自己移動
     if (!checkCollision(self.sprite, target.sprite)) {
       console.log('%cMOVE', 'color: lightblue')
-      updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, direction, character: self })
+      console.log('updateMovement', { forceX: dirX * self.mv, forceY: dirY * self.mv })
+      updateCharPosition({ forceX: dirX * self.mv, forceY: dirY * self.mv, character: self })
       return
     }
 
@@ -26,8 +36,8 @@ export const updateMovement = async ({ self, targets, dirX, dirY, direction }: I
       console.log('%cCAN_NOT_PUSH', 'color: red')
 
       // 停止角色移動
-      updateCharPosition({ forceX: 0, forceY: 0, direction, character: self })
-      updateCharPosition({ forceX: 0, forceY: 0, direction, character: target })
+      updateCharPosition({ forceX: 0, forceY: 0, character: self })
+      updateCharPosition({ forceX: 0, forceY: 0, character: target })
       return
     }
 
@@ -48,8 +58,8 @@ export const updateMovement = async ({ self, targets, dirX, dirY, direction }: I
       }
 
       // 停止角色移動
-      updateCharPosition({ forceX: moveData.targetMoveX, forceY: moveData.targetMoveY, direction, character: target })
-      updateCharPosition({ forceX: moveData.charMoveX, forceY: moveData.charMoveY, direction, character: self })
+      updateCharPosition({ forceX: moveData.targetMoveX, forceY: moveData.targetMoveY, character: target })
+      updateCharPosition({ forceX: moveData.charMoveX, forceY: moveData.charMoveY, character: self })
       return
     }
   })

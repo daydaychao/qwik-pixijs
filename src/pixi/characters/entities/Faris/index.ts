@@ -1,5 +1,7 @@
-import { CollisionEnum, MapLayerEnum, type ICharacter } from '~/core/types'
+import { Container } from 'pixi.js'
+import { CollisionEnum, MapLayerEnum, type ICharacter, type IDirection } from '~/core/types'
 import type { IApp } from '../../../startPixi'
+import { initCharacter } from '../../initCharacter'
 
 import farisLeft0 from './images/left/0.png'
 import farisLeft1 from './images/left/1.png'
@@ -8,7 +10,6 @@ import farisRight1 from './images/right/1.png'
 import faris3 from './images/ff5_faris-3.png'
 import faris4 from './images/ff5_faris-4.png'
 import faris5 from './images/ff5_faris-5.png'
-import { initCharacter } from '../../initCharacter'
 
 export const Faris = async (app: IApp, name = 'Faris', x = 0, y = 0, isPlayer = false): Promise<ICharacter> => {
   // status
@@ -31,20 +32,24 @@ export const Faris = async (app: IApp, name = 'Faris', x = 0, y = 0, isPlayer = 
   }
 
   const defaultCharData = {
-    name,
-    hp,
-    mv,
-    x,
-    y,
+    animations: null,
+    animationSpeed,
+    animeKey: 'down',
+    app,
     charId,
     collision,
-    mapLayer,
-    scale,
-    app,
-    spriteTexture,
-    animationSpeed,
+    container: new Container(),
+    direction: 'down' as IDirection,
     frameMaps,
+    hp,
     isPlayer,
+    mapLayer,
+    mv,
+    name,
+    scale,
+    spriteTexture,
+    x,
+    y,
   }
 
   return initCharacter(app, defaultCharData)
